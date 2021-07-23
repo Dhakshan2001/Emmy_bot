@@ -230,7 +230,7 @@ async def col(ctx):
 
 @bot.command()
 async def oink(channel):
-    with open('E:/Py-General/Discord_Bot/pigfarm.wav', 'rb') as fp:
+    with open('pigfarm.wav', 'rb') as fp:
         await channel.send(file=discord.File(fp, 'oink oink.wav'))
 
 @bot.command()
@@ -386,16 +386,16 @@ async def constlist(ctx):
 @bot.command()
 async def fitsread(ctx):
     attachment = ctx.message.attachments[0]
-    hdulist=fits.open(attachment)
+    await attachment.save("FITS.fits")
+    hdulist=fits.open("FITS.fits")
     data=hdulist[0].data
     plt.imshow(data,cmap= plt.cm.viridis)
     plt.xlabel("x-pixels (RA)")
     plt.ylabel("y-pixels (Dec)")
     plt.colorbar()
-    plt.savefig("E:/Py-General/Discord_Bot/fits/FITS.png")
-    with open('E:/Py-General/Discord_Bot/fits/FITS.png', 'rb') as fp:
-        await ctx.send(file=discord.File(fp, 'fits.png'))    
-
+    plt.savefig("FITS.png")
+    with open('FITS.png', 'rb') as fp:
+        await ctx.send(file=discord.File(fp, 'fits.png')) 
 
 #moderation
 
