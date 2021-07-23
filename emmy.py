@@ -14,6 +14,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import codecs
 import aiohttp
+import html5lib
 
 
 TOKEN='NzQyNzgxMTk4MzI1MTIxMTg3.XzLG5Q.VX80xfpLhIiHO4Xckrit21Kj3V8'
@@ -181,7 +182,7 @@ async def on_argument_error(ctx,error):
 @bot.command()
 async def urban(ctx,word:str):
     r = requests.get("http://www.urbandictionary.com/define.php?term={}".format(word))
-    soup = BeautifulSoup(r.content,features="lxml")
+    soup = BeautifulSoup(html, "html5lib")
     m = discord.Embed(title=word,description=(soup.find("div",attrs={"class":"meaning"}).text),colour = 0x1ab1db)
     await ctx.send(embed=m)
 @urban.error
