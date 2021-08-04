@@ -172,7 +172,10 @@ async def remind(ctx,duration = 0, unit = None,*, text : str):
     elif unit== "hr" or unit=="hrs":
         wait = 3600 * duration
         await asyncio.sleep(wait)
-    await member.send(str(text)) 
+    elif unit== "day" or unit=="d":
+        wait = 86400 * duration
+        await asyncio.sleep(wait)
+    await member.send(str(text))  
 @remind.error
 async def on_argument_error(ctx,error):
     if isinstance(error,commands.errors.MissingRequiredArgument):
