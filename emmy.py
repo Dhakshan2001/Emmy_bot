@@ -156,6 +156,9 @@ async def selfmute(ctx, duration = 0,*, unit = None):
     elif unit== "hr" or unit=="hrs":
         wait = 3600 * duration
         await asyncio.sleep(wait)
+    elif unit== "day" or unit=="d" or unit=="days":
+        wait = 86400 * duration
+	await asyncio.sleep(wait)
     await member.remove_roles(role)
     await ctx.send(f" {member}, you are unmuted")  
 
@@ -172,7 +175,7 @@ async def remind(ctx,duration = 0, unit = None,*, text : str):
     elif unit== "hr" or unit=="hrs":
         wait = 3600 * duration
         await asyncio.sleep(wait)
-    elif unit== "day" or unit=="d":
+    elif unit== "day" or unit=="d" or unit=="days":
         wait = 86400 * duration
         await asyncio.sleep(wait)
     await member.send(str(text))  
