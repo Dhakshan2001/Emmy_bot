@@ -147,13 +147,13 @@ async def selfmute(ctx, duration = 0,*, unit = None):
     role = discord.utils.get(ctx.guild.roles, name="Muted")
     await member.add_roles(role)
     await ctx.send(f"{member},you have been muted for {duration}{unit}")
-    if unit == "s" or unit == "sec":
+    if unit == "s" or unit == "sec" or unit == "second" or unit == "seconds":
         wait = 1 * duration
         await asyncio.sleep(wait)
-    elif unit == "m" or unit == "min" or unit == "mins":
+    elif unit == "m" or unit == "min" or unit == "mins" or unit == "minute" or unit == "minutes":
         wait = 60 * duration
         await asyncio.sleep(wait)
-    elif unit== "hr" or unit=="hrs":
+    elif unit== "hr" or unit=="hrs" or unit=="hour" or unit=="hours":
         wait = 3600 * duration
         await asyncio.sleep(wait)
     elif unit== "day" or unit=="d" or unit== "days":
@@ -163,16 +163,36 @@ async def selfmute(ctx, duration = 0,*, unit = None):
     await ctx.send(f" {member}, you are unmuted")  
 
 @bot.command()
+async def study(ctx, text:str):
+    member = ctx.author
+    s = discord.utils.get(ctx.guild.roles, name="I'm Studying RN 📖")
+    r = discord.utils.get(ctx.guild.roles, name="Yippy")
+    if text=="add":
+        await member.add_roles(s)
+        await member.remove_roles(r)
+        await ctx.send(f" {member}, go study now")
+    elif text=="remove":
+        await member.add_roles(r)
+        await member.remove_roles(s)
+        await ctx.send(f" {member}, have fun")
+    else:
+        pass
+@study.error
+async def on_mb_error(ctx,error):
+    if isinstance(error, commands.MissingRequiredArgument):
+        await ctx.send(embed = k)
+	
+@bot.command()
 async def remind(ctx,duration = 0, unit = None,*, text : str):
     member = ctx.author
     await ctx.send(f"I'll remind you in {duration}{unit}")
-    if unit == "s" or unit == "sec":
+    if unit == "s" or unit == "sec" or unit == "second" or unit == "seconds":
         wait = 1 * duration
         await asyncio.sleep(wait)
-    elif unit == "m" or unit == "min" or unit == "mins":
+    elif unit == "m" or unit == "min" or unit == "mins" or unit == "minute" or unit == "minutes":
         wait = 60 * duration
         await asyncio.sleep(wait)
-    elif unit== "hr" or unit=="hrs":
+    elif unit== "hr" or unit=="hrs" or unit=="hour" or unit=="hours":
         wait = 3600 * duration
         await asyncio.sleep(wait)
     elif unit== "day" or unit=="d" or unit== "days":
