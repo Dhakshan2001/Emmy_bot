@@ -167,11 +167,11 @@ async def study(ctx, text:str):
     member = ctx.author
     s = discord.utils.get(ctx.guild.roles, name="I'm Studying RN 📖")
     r = discord.utils.get(ctx.guild.roles, name="Yippy")
-    if text=="add":
+    if text=="add" or text=="now":
         await member.add_roles(s)
         await member.remove_roles(r)
         await ctx.send(f" {member}, go study now")
-    elif text=="remove":
+    elif text=="remove" or text=="done":
         await member.add_roles(r)
         await member.remove_roles(s)
         await ctx.send(f" {member}, have fun")
