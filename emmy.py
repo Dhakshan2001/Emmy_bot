@@ -325,7 +325,7 @@ async def fact(ctx, message: int):
         n = math.factorial(message)
         await ctx.send(n)
 
-@bot.command(aliases=["c"])
+@bot.command(aliases=["c","combi"])
 async def C(ctx, n:int,r:int):
     if n<r:
         await ctx.send("Learn MATHS before using this command")
@@ -343,7 +343,7 @@ async def C(ctx, n:int,r:int):
         else:
             await ctx.send(P)
 
-@bot.command(aliases=["P"])
+@bot.command(aliases=["P","permu"])
 async def p(ctx, n:int,r:int):
     if n<r:
         await ctx.send("Learn MATHS before using this command")
