@@ -95,6 +95,13 @@ async def on_command_error(ctx, error):
     else:
         raise error
 
+@bot.command()
+@commands.is_owner()
+async def alarm(ctx,member: discord.Member, n:int):
+    mes = member.mention + "wake up"
+    for i in range(n):
+        await ctx.send(mes)	
+
 #General
 
 @bot.command()
