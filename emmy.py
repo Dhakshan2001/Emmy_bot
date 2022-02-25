@@ -134,19 +134,19 @@ async def on_memb_error(ctx,error):
     if isinstance(error, commands.BadArgument):
         await ctx.send(embed=b2)
 
-@bot.command()
-async def forward(ctx,*, message: str):
-    channel = bot.get_channel(745664856845451295)
-    await channel.send(message)
-    await ctx.send(f"Succesfully sent the message")
-@forward.error
-async def on_mb_error(ctx,error):
-    if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send(embed = k)
-    elif isinstance(error,commands.BadArgument):
-        await ctx.send(embed=b1)
-    else:
-        pass
+#@bot.command()
+#async def forward(ctx,*, message: str):
+#    channel = bot.get_channel(745664856845451295)
+#    await channel.send(message)
+#    await ctx.send(f"Succesfully sent the message")
+#@forward.error
+#async def on_mb_error(ctx,error):
+#    if isinstance(error, commands.MissingRequiredArgument):
+#        await ctx.send(embed = k)
+#    elif isinstance(error,commands.BadArgument):
+#        await ctx.send(embed=b1)
+#    else:
+#        pass
 
 @bot.command()
 async def selfmute(ctx, duration = 0,*, unit = None):
