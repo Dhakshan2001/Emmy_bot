@@ -393,10 +393,9 @@ async def multi(ctx,*args):
     await ctx.send(math.prod(l))
 
 @bot.command(aliases = ["eigenvalues","eigenvectors", "eigen"])
-async def eig(ctx, m:int):
+async def eig(ctx, *args):
 	l = []
-	p = str(m)
-	for i in p:
+	for i in args:
 		l.append(float(i))
 	o = np.asarray(l)
 	n = int(math.sqrt(len(o)))
