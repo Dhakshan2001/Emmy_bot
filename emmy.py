@@ -394,14 +394,15 @@ async def multi(ctx,*args):
 
 @bot.command(aliases = ["eigenvalues","eigenvectors", "eigen"])
 async def eig(ctx, m:int):
-    l = []
-    p = str(m)
-    for i in p:
-        l.append(float(i)) 
-    o = np.asarray(l)
-    o = o.reshape(3,3) 
-    e,g = np.linalg.eig(o)
-    await ctx.send(f"The eigenvalues of the given matrix are \n {e} \n\n The eigenvectors of the give matrix are \n {g}")
+	l = []
+	p = str(m)
+	for i in p:
+		l.append(float(i))
+	o = np.asarray(l)
+	n = int(math.sqrt(len(o)))
+	o = o.reshape(n,n)
+	e,g = np.linalg.eig(o)
+	await ctx.send(f"The eigenvalues of the given matrix are \n {e} \n\n The eigenvectors of the give matrix are \n {g}")
 
 #Physics
 
