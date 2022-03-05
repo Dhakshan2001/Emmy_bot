@@ -10,5 +10,5 @@ jishaku==1.19.0.194
 async-timeout==3.0.1 
 matplotlib==3.4.2
 numpy==1.21
-aiohttp==3.6.9
+aiohttp==3.6.3
 lxml==4.6.5
