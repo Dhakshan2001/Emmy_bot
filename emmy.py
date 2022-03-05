@@ -401,7 +401,7 @@ async def eig(ctx, *args):
 	n = int(math.sqrt(len(o)))
 	o = o.reshape(n,n)
 	e,g = np.linalg.eig(o)
-	await ctx.send(f"The eigenvalues of the given matrix are \n {e} \n\n The eigenvectors of the give matrix are \n {g}")
+	await ctx.send(f"The __eigenvalues__ of the given matrix are \n `{e}` \n\n The __eigenvectors__ of the give matrix are \n `{g}`")
 
 #Physics
 
