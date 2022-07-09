@@ -86,7 +86,7 @@ async def logout(ctx):
 
 @bot.event
 async def on_command_error(ctx, error):
-    h = discord.Embed(title="❌ Exception",description = 'That command is not in my directory.To know about things I do, type `oi help`. If you want to add a command, ask `Tesla#1045`',colour = 0xff0000)
+    h = discord.Embed(title="❌ Exception",description = 'That command is not in my directory.To know about things I do, use `oi help`. If you want to add a command, ask `Tesla#1045`',colour = 0xff0000)
     o = discord.Embed(title = "❌ Exception", description = "NotOwner: You do not own this bot.",colour = 0xf8fc03)
     if isinstance(error, commands.CommandNotFound): 
         await ctx.send(embed=h)  
