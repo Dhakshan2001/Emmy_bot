@@ -427,8 +427,9 @@ async def fitsread(ctx):
 async def clear(ctx, amount=1):
 	await ctx.channel.purge(limit = amount + 1)
 @clear.error
-async def on_role_error(ctx,error):
-    await ctx.send(embed=r)
+async def on_perm_error(ctx,error):
+    if isinstance(error, commands.MissingPermissions):
+	await ctx.send("You are not permitted to do that action")
 
 @bot.command()
 @commands.has_permissions(administrator=True)
