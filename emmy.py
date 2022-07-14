@@ -425,11 +425,11 @@ async def fitsread(ctx):
 @bot.command(aliases=['clr','purge'])
 @commands.has_permissions(administrator=True)
 async def clear(ctx, amount=1):
-	await ctx.channel.purge(limit = amount + 1)
+    await ctx.channel.purge(limit = amount + 1)
 @clear.error
 async def on_perm_error(ctx,error):
     if isinstance(error, commands.MissingPermissions):
-	await ctx.send("You are not permitted to do that action")
+        await ctx.send("You are not permitted to do that action")
 
 @bot.command()
 @commands.has_permissions(administrator=True)
