@@ -483,18 +483,3 @@ bot.run(TOKEN)
 #        await ctx.send(embed=b1)
 #    else:
 #        pass
-
-#@bot.command(aliases=["covid","corona","coronavirus"])
-#async def covid19(ctx):
-#	x = ""
-#	for i in covid_state():
-#		x += i
-#		x += "\n"
-#	await ctx.send(f"```{x}```")
-
-#def covid_state():
-#	cl = []
-#	data = requests.get('https://disease.sh/v3/covid-19/all').json()
-#	for x, y in data.items():
-#		cl.append(f"{x}-{y}")
-#	return (cl)
