@@ -16,7 +16,7 @@ import codecs
 import aiohttp
 
 
-TOKEN='NzQyNzgxMTk4MzI1MTIxMTg3.XzLG5Q.VX80xfpLhIiHO4Xckrit21Kj3V8'
+TOKEN='Not mentioned here for privary reasons'
 bot = commands.Bot(command_prefix=(['oi ','Oi ','oI', 'OI']),help_command=None)
 client = discord.Client() 
 
@@ -232,19 +232,9 @@ async def ily(ctx, member: discord.Member):
 
 @bot.command()
 async def oink(channel):
-    with open('E:/Py-General/Discord_Bot/pigfarm.wav', 'rb') as fp:
+    with open('pigfarm.wav', 'rb') as fp:
         await channel.send(file=discord.File(fp, 'oink oink.wav'))
 
-@bot.command()
-async def die(ctx):
-    num = random.randint(0,12)
-    dies = ["Ok, I died.","Emmy died due to "+ ctx.author.mention +"'s stupidity.",
-        "..."+"\nNothing","Hmm, did that work?","No.","I can't. Don't ask me why.",
-        "I'm immortal.","Potatoes :potato:","OUCH! That hurts!",
-        "Why? Why though? Why you would you ever do that?",
-        "Lol, you thought that'll work? I'm the **AVATAR**.","We don't do that here.",
-        "Come kill me yourself"]
-    await ctx.send(dies[num])
 
 @bot.command()
 @commands.is_owner()
@@ -252,33 +242,6 @@ async def alarm(ctx,member: discord.Member, n:int):
     mes = member.mention + "wake up"
     for i in range(n+1):
         await ctx.send(mes)
-
-
-@bot.command()
-async def kill(ctx,member: discord.Member):
-    kills = [
-    "died of "+ctx.author.mention+"'s stupidity","laughed too much at memes",
-    "couldn't withstand "+ctx.author.mention+"'s ugliness","was hit by a cybertruck",
-    "died due to global warming","was murdered for being a karen","F*cked up.","died.",
-    "got killed by "+ctx.author.mention+" while taking a dump under a tree",
-    "got Squirrel In their Pants","supported anti-maskers","didn't get vacinated",
-    "listened Justin Bieber for 9 hours straight",
-    "killed "+ctx.author.mention+" for trying to kill him. \n You get what you fckin deserves, boi. ",
-    "donated all everything to a virtual girl twitch streamer","got coronavirus","caught ebola","No. ",
-    "went to australia, thinking the Aloragus spider was a toy","Why not you do it by yourself?",
-    "hit the ground too hard","thought the lava was the floor. That's how the game works, right?",
-    "looked up the sun.","played fortnite in minecraft","was slained by magic","did maths",
-    "hated "+ctx.author.mention+" so much that he sucided","realized people breath oXYgen, and not oXXgen",
-    "accindently called the teacher \"mom\"","thought 5g towers cause diseases",
-    "ran out of battery","choke on some eggplants :eggplant:","laughed at some boomer \"memes\"",
-    "stepped on Trump's shoes","kicked Putin's chair"]
-    num = random.randint(0,34)
-    mesg = member.mention +" " + kills[num]
-    await ctx.send(mesg)
-@kill.error
-async def on_mem_error(ctx,error):
-    if isinstance(error, commands.MissingRequiredArgument):
-        await ctx.send("Who are you killing? Your stupidity?")
 
 #Maths
 
